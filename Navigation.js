@@ -5,6 +5,7 @@ import { EventRegister } from 'react-native-event-listeners'
 import theme from './theme/Theme';
 import themeContext from './theme/ThemeContext';
 import Home from './src/Home';
+import SingIn from './src/SingIn';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ function Navigation() {
             <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}>
                 <Stack.Navigator>
                     <Stack.Screen name="Home" component={Home} options={{ headerShown: false}}/>
+                    <Stack.Screen name="SignIn" component={SingIn} options={{ headerShown: false}}/> 
                 </Stack.Navigator>
             </NavigationContainer>
         </themeContext.Provider>
