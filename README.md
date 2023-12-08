@@ -1,2 +1,3 @@
-# diveni-frontend
-Diveni app frontend
+# Diveni Frontend
+
+The Diveni app frontend.
