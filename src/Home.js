@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { View, Text, SafeAreaView, TouchableOpacity, Switch } from "react-native";
 import { EventRegister } from 'react-native-event-listeners'
 import { useFonts } from 'expo-font';
+import { useNavigation } from "@react-navigation/native";
 import styles from '../styles/Styles';
 import themeContext from "../theme/ThemeContext";
 
@@ -20,6 +21,12 @@ function Home() {
         return null;
     }
 
+    const navigation = useNavigation();
+
+    const handleNavigationSingIn = () => {
+        navigation.navigate('SignIn');
+    }
+
     return (
         <SafeAreaView style={[styles.safeAreaView, {backgroundColor:theme.backgroundColor}]}>
             <Switch
@@ -35,10 +42,10 @@ function Home() {
                 }}
             />
             <Text style={[styles.titleText, { color:theme.color }]}>Diveni</Text>
-            <View style={{ flex: 1, display: "flex", margin: 150, alignItems: "center" }}>
-                <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor:theme.primaryColor }]}>
+            <View style={{ flex: 1, display: "flex", marginTop: 150, alignItems: "center" }}>
+                <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor:theme.primaryColor }]} onPress={handleNavigationSingIn}>
                     <Text style={[styles.mainTextOfTouchableOpacityLight, { color:theme.color }]}>
-                         Log In
+                         Sign In
                     </Text>
                 </TouchableOpacity>
                 <View style={{ margin: 10 }} />
