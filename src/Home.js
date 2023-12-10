@@ -22,46 +22,55 @@ function Home() {
     }
 
     const navigation = useNavigation();
-
     const handleNavigationSingIn = () => {
         navigation.navigate('SignIn');
     }
 
+    const handleNavigationRegister = () => {
+        navigation.navigate('Register');
+    }
+
+    const handleNavigationPlay = () => {
+        navigation.navigate("Play")
+    }
+
     return (
-        <SafeAreaView style={[styles.safeAreaView, {backgroundColor:theme.backgroundColor}]}>
-            <Switch
-                style={{
-                    position:"relative",
-                    alignSelf:"flex-end",
-                    margin: 10,
-                }}
-                value={darkMode}
-                onValueChange={(value) => {
-                    setDarkMode(value);
-                    EventRegister.emit('ChangeTheme', value)
-                }}
-            />
-            <Text style={[styles.titleText, { color:theme.color }]}>Diveni</Text>
-            <View style={{ flex: 1, display: "flex", marginTop: 150, alignItems: "center" }}>
-                <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor:theme.primaryColor }]} onPress={handleNavigationSingIn}>
-                    <Text style={[styles.mainTextOfTouchableOpacityLight, { color:theme.color }]}>
-                         Sign In
-                    </Text>
-                </TouchableOpacity>
-                <View style={{ margin: 10 }} />
-                <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor:theme.primaryColor }]}>
-                    <Text style={[styles.mainTextOfTouchableOpacityLight, { color:theme.color }]}>
-                         Register
-                    </Text>
-                </TouchableOpacity>
-                <View style={{ margin: 10 }} />
-                <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor:theme.primaryColor }]}>
-                    <Text style={[styles.mainTextOfTouchableOpacityLight, { color:theme.color }]}>
-                         Enter as guest
-                    </Text>
-                </TouchableOpacity>
-            </View>
-        </SafeAreaView>
+        <View style={[styles.viewContainer, { backgroundColor: theme.backgroundColor }]}>
+            <SafeAreaView style={[styles.safeAreaView, { backgroundColor: theme.backgroundColor }]}>
+                <Switch
+                    style={{
+                        position: "relative",
+                        alignSelf: "flex-end",
+                        margin: 10,
+                    }}
+                    value={darkMode}
+                    onValueChange={(value) => {
+                        setDarkMode(value);
+                        EventRegister.emit('ChangeTheme', value)
+                    }}
+                />
+                <Text style={[styles.titleText, { color: theme.color }]}>Diveni</Text>
+                <View style={{ flex: 1, display: "flex", marginTop: 150, alignItems: "center" }}>
+                    <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor: theme.primaryColor }]} onPress={handleNavigationSingIn}>
+                        <Text style={[styles.mainTextOfTouchableOpacityLight, { color: theme.color }]}>
+                            Sign In
+                        </Text>
+                    </TouchableOpacity>
+                    <View style={{ margin: 10 }} />
+                    <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor: theme.primaryColor }]} onPress={handleNavigationRegister}>
+                        <Text style={[styles.mainTextOfTouchableOpacityLight, { color: theme.color }]}>
+                            Register
+                        </Text>
+                    </TouchableOpacity>
+                    <View style={{ margin: 10 }} />
+                    <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor: theme.primaryColor }]} onPress={handleNavigationPlay}>
+                        <Text style={[styles.mainTextOfTouchableOpacityLight, { color: theme.color }]}>
+                            Enter as guest
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+            </SafeAreaView>
+        </View>
     );
 }
 

@@ -3,6 +3,9 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 
+    viewContainer: {
+        flex: 1,
+    },
     safeAreaView: {
         flex: 1,
         margin: 10
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
     mainTouchableOpacityLight: {
         display: "flex",
         width: "100%",
+        height: "auto",
         paddingLeft: 12,
         paddingRight: 12,
         paddingTop: 16,
@@ -51,9 +55,11 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     mainPlaceholder: {
+        fontFamily: "SpaceGrotesk-Bold",
         display: "flex",
         width: "100%",
         padding: 16,
+        height: 52.5,
         justifyContent: "flex-start",
         alignItems: "flex-start",
         borderRadius: 16,
