@@ -69,6 +69,15 @@ const styles = StyleSheet.create({
         fontSize: 16,
         opacity: 0.5
     },
+    playButton: {
+        width: 64,
+        height: 64,
+        borderRadius: 32,
+        backgroundColor: "#0A030C",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 40  
+    }
 
 })
 

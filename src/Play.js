@@ -21,7 +21,7 @@ function Play() {
         <View style={[styles.viewContainer, { backgroundColor: theme.backgroundColor }]}>
             <SafeAreaView style={[styles.safeAreaView, { backgroundColor: theme.backgroundColor }]}>
 
-                <Text style={styles.someText}>
+                <Text style={[styles.someText, { color: theme.color }]}>
                     Play
                 </Text>
             </SafeAreaView>
