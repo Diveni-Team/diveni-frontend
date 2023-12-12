@@ -17,19 +17,22 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import Profile from './src/Profile';
 import { AntDesign } from '@expo/vector-icons';
-
+import PlayButton from './src/components/PlayButton';
+import ProfileButton from './src/components/ProfileButton';
+import StadisticsButton from './src/components/StadisticsButton';
 
 const Tab = createBottomTabNavigator();
 function BottomTabs() {
+
     return (
         <Tab.Navigator
             screenOptions={{
                 tabBarLabel: () => null,
                 tabBarStyle: {
-                    elevation: 0, // Remove shadow on Android
-                    borderTopWidth: 0, // Remove top border on iOS  
+                    elevation: 0,
+                    borderTopWidth: 0,
                     borderRadius: 15,
-                    backgroundColor:"red"
+                    backgroundColor: theme.light.secondaryColor,
                 },
             }}
         >
@@ -39,7 +42,7 @@ function BottomTabs() {
                 tabBarLabelStyle: { color: "black" },
                 tabBarIcon: ({ focused }) =>
                     focused ? (
-                        <AntDesign name="star" size={24} color="black" />
+                        <StadisticsButton />
                     ) : (
                         <AntDesign name="staro" size={24} color="black" />
                     )
@@ -50,7 +53,7 @@ function BottomTabs() {
                 tabBarLabelStyle: { color: "black" },
                 tabBarIcon: ({ focused }) =>
                     focused ? (
-                        <Ionicons name="game-controller" size={24} color="black" />
+                        <PlayButton />
                     ) : (
                         <Ionicons name="game-controller-outline" size={24} color="black" />
                     )
@@ -61,7 +64,7 @@ function BottomTabs() {
                 tabBarLabelStyle: { color: "black" },
                 tabBarIcon: ({ focused }) =>
                     focused ? (
-                        <FontAwesome name="user-circle" size={24} color="black" />
+                        <ProfileButton />
                     ) : (
                         <FontAwesome name="user-circle-o" size={24} color="black" />
                     )
