@@ -6,6 +6,10 @@ import styles from "../styles/Styles";
 import themeContext from "../theme/ThemeContext";
 import { useNavigation } from "@react-navigation/native";
 
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserDocument, auth as firebaseAuth } from '../backend/FirebaseConnection';
+
+
 function Register() {
     const theme = useContext(themeContext)
     const [darkMode, setDarkMode] = useState(false);
@@ -18,6 +22,28 @@ function Register() {
     const handleNavigationSignIn = () => {
         navigation.navigate('SignIn');
     }
+
+    const [email, onChangeEmail] = React.useState(null);
+    const [password, onChangePassword] = React.useState(null);
+    const [displayName, onChangeDisplayName] = React.useState(null);
+
+    const handleCreateAccount = async () => {
+        try {
+            const userCredential = await createUserWithEmailAndPassword(firebaseAuth, email, password);
+            const user = userCredential.user;
+            console.log(user);
+            await createUserDocument(user, { displayName });
+            alert("Account created successfully!");
+        } catch (error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log("Error: ", errorCode, errorMessage);
+            alert(errorMessage);
+        }
+    }
+    
+
+
 
     return (
         <View style={[styles.viewContainer, { backgroundColor: theme.backgroundColor }]}>
@@ -40,12 +66,16 @@ function Register() {
                     style={[styles.mainPlaceholder, { backgroundColor: theme.secondaryColor, color: theme.color }]}
                     placeholder="Username"
                     placeholderTextColor={theme.color}
+                    onChangeText={text => onChangeDisplayName(text)}
+                    value={displayName}
                 />
                 <View style={{ margin: 10 }} />
                 <TextInput
                     style={[styles.mainPlaceholder, { backgroundColor: theme.secondaryColor, color: theme.color }]}
                     placeholder="Email"
                     placeholderTextColor={theme.color}
+                    onChangeText={text => onChangeEmail(text)}
+                    value={email}
                 />
                 <View style={{ margin: 10 }} />
                 <TextInput
@@ -53,6 +83,8 @@ function Register() {
                     placeholder="Password"
                     placeholderTextColor={theme.color}
                     secureTextEntry={true}
+                    onChangeText={text => onChangePassword(text)}
+                    value={password}
                 />
                 <View style={{ margin: 10 }} />
                 <TextInput
@@ -62,7 +94,7 @@ function Register() {
                     secureTextEntry={true}
                 />
                 <View style={{ margin: 20 }} />
-                <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor: theme.primaryColor }]}>
+                <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor: theme.primaryColor }]} onPress={handleCreateAccount}>
                     <Text style={[styles.mainTextOfTouchableOpacityLight, { color: theme.color }]}>
                         Register
                     </Text>
