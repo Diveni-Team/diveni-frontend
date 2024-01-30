@@ -77,8 +77,39 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginBottom: 40  
-    }
-
+    },
+    CrownCounter: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        width: 100,
+        height: 40,
+        borderRadius: 10,
+        margin: 10,
+        borderWidth: 1,  
+        borderColor: "green",
+    },
+    TitlePlay: {
+        fontSize: 50,
+        fontFamily: "SuezOne-Regular",
+        textAlign: "center",
+        marginTop: 10
+    },
+    Singleplayer_multiplayerButton: {
+        display: "flex",
+        width: "75%",
+        height: "auto",
+        paddingLeft: 12,
+        paddingRight: 12,
+        paddingTop: 16,
+        paddingBottom: 16,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 50,
+        alignSelf: 'center',
+    },
+    
 })
 
 export default styles;
