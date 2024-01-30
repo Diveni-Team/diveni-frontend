@@ -23,6 +23,7 @@ function Play() {
             <SafeAreaView style={[styles.safeAreaView, { backgroundColor: theme.backgroundColor }]}>
                 <Crown />
                 <Image
+                //EL COLOR NO SE CAMBIA AL CAMBIAR DE EL COLOR DE FONDO
                     source={require('../assets/logo.png')} 
                     style={{ width: 100, height: 100, resizeMode: 'contain', color: theme.color, alignSelf: 'center', marginTop: 20  }}
                 />
