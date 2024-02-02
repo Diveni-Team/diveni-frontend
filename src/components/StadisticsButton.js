@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import styles from "../../styles/Styles";
 
-function StadisticsButton() {
+function SocialButton() {
     return (
         <View style={styles.playButton}>
             <AntDesign name="star" size={24} color="white" />
@@ -11,4 +11,4 @@ function StadisticsButton() {
     )
 }
 
-export default StadisticsButton;
+export default SocialButton;
