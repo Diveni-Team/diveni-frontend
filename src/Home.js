@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 import { useNavigation } from "@react-navigation/native";
 import styles from '../styles/Styles';
 import themeContext from "../theme/ThemeContext";
+import HomeScreenNavigateButton from "./components/HomeScreenNavigateButton";
 
 function Home() {
     const theme = useContext(themeContext)
@@ -51,11 +52,9 @@ function Home() {
                 />
                 <Text style={[styles.titleText, { color: theme.color }]}>Diveni</Text>
                 <View style={{ flex: 1, display: "flex", marginTop: 150, alignItems: "center" }}>
-                    <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor: theme.primaryColor }]} onPress={handleNavigationSingIn}>
-                        <Text style={[styles.mainTextOfTouchableOpacityLight, { color: theme.color }]}>
-                            Sign In
-                        </Text>
-                    </TouchableOpacity>
+
+                    <HomeScreenNavigateButton buttonText="Login" />                       
+
                     <View style={{ margin: 10 }} />
                     <TouchableOpacity style={[styles.mainTouchableOpacityLight, { backgroundColor: theme.primaryColor }]} onPress={handleNavigationRegister}>
                         <Text style={[styles.mainTextOfTouchableOpacityLight, { color: theme.color }]}>

@@ -20,7 +20,6 @@ function Stadistics() {
     return (
         <View style={[styles.viewContainer, { backgroundColor: theme.backgroundColor }]}>
             <SafeAreaView style={[styles.safeAreaView, { backgroundColor: theme.backgroundColor }]}>
-
                 <Text style={styles.someText}>
                     Stadistics
                 </Text>
